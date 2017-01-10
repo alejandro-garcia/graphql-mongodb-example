@@ -12,6 +12,7 @@ import {
 import mongoose from 'mongoose';
 import User from './Models/User/UserSchema.es6';
 import Hobby from './Models/Hobby/HobbySchema.es6';
+import Rank from './Models/Rank/RankSchema.es6';
 
 import {
   UserQueries,
@@ -25,6 +26,12 @@ import {
   HobbyMutations,
   } from './Models/Hobby/HobbyQL.es6';
 
+import {
+  RankType,
+  RankQueries,
+  RankMutations
+} from './Models/Rank/RankQL.es6';
+
 
 let RootQuery = new GraphQLObjectType({
   name: 'Query',      //Return this type of object
@@ -32,7 +39,9 @@ let RootQuery = new GraphQLObjectType({
     user: UserQueries.user,
     users: UserQueries.users,
     hobby: HobbyQueries.hobby,
-    hobbies: HobbyQueries.hobbies
+    hobbies: HobbyQueries.hobbies,
+    rank: RankQueries.rank,
+    ranks: RankQueries.ranks
   })
 });
 
@@ -41,7 +50,8 @@ let RootMutation = new GraphQLObjectType({
   name: "Mutation",
   fields: () => ({
     addUser: UserMutations.addUser,
-    addHobby: HobbyMutations.addHobby
+    addHobby: HobbyMutations.addHobby,
+    addRank: RankMutations.addRank
   })
 });
 

@@ -27,5 +27,5 @@ app.post('/', (req, res) => {
 
 let server = app.listen(PORT, function () {
   console.log(`Server listening at ${PORT}`);
-  mongoose.connect('mongodb://localhost/test');
+  mongoose.connect('mongodb://localhost/ttt2ranks');
 });
